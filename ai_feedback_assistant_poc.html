@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment AI Feedback Assistant</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; background: #f4f4f9; }
+        h1 { color: #333; }
+        textarea { width: 100%; height: 200px; padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
+        .output { margin-top: 20px; background: #fff; padding: 15px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Assignment AI Feedback Assistant (POC)</h1>
+    <p>Paste your assignment text below:</p>
+    <textarea id="inputText" placeholder="Enter your assignment text here..."></textarea>
+    <br>
+    <button onclick="generateFeedback()">Get AI Feedback</button>
+    <div class="output" id="feedbackOutput"></div>
+
+    <script>
+        function generateFeedback() {
+            const input = document.getElementById("inputText").value;
+            let output = "";
+
+            if (!input.trim()) {
+                output = "<strong>Please enter some text first.</strong>";
+            } else {
+                output = `
+                <h3>AI Feedback:</h3>
+                <ul>
+                    <li><strong>Clarity:</strong> Consider simplifying your third sentence for clarity.</li>
+                    <li><strong>Grammar:</strong> Replace "have did" with "have done" in paragraph two.</li>
+                    <li><strong>Structure:</strong> Add a concluding sentence to wrap up your final argument.</li>
+                </ul>`;
+            }
+            document.getElementById("feedbackOutput").innerHTML = output;
+        }
+    </script>
+</body>
+</html>
